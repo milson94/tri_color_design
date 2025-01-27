@@ -421,15 +421,16 @@
         <!-- About Section -->
         <section class="py-16">
             <div class="container mx-auto px-4 mt-12">
-                <div class="bg-gray-800/40 rounded-lg p-8 backdrop-blur-sm max-w-3xl mx-auto">
+                <!-- Change bg-gray-800/40 to bg-gray-100 (light grey-white) and remove backdrop-blur-sm -->
+                <div class="bg-gray-100 rounded-lg p-8 max-w-3xl mx-auto">
                     <div class="text-center">
-                        <p class="mb-4 dark:text-white">
+                        <p class="mb-4 text-gray-700"> <!-- Update text color for better contrast -->
                             Somos uma empresa jovem e dinâmica, impulsionada pela energia e criatividade da nova geração. Com uma equipe cheia de entusiasmo e eficiência, transformamos ideias em soluções inovadoras, sempre com um toque de modernidade e agilidade.
                         </p>
-                        <p class="dark:text-white">
-                            Na <span class="italic">Tri-Color Design</span> a juventude é nossa força, e a inovação, nosso compromisso!
+                        <p class="text-gray-700"> <!-- Update text color for better contrast -->
+                            Na <span class="font-bold text-gray-900 dark:text-gray-900">Tri-Color Design</span> a juventude é nossa força, e a inovação, nosso compromisso!
                         </p>
-
+        
                         <!-- WhatsApp Button -->
                         <a href="#" class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-md transition-colors mt-6">
                             <i class="fab fa-whatsapp text-xl"></i>
