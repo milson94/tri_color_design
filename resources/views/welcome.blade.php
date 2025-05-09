@@ -4,13 +4,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ config('app.name', 'Laravel') }}</title>
-        
+
         <!-- Styles -->
         @vite(['resources/css/app.css', 'public/css/welcome.css'])
-        
+
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        
+
         <!-- Add this before your closing head tag -->
         <script>
             // Check initial dark mode preference
@@ -20,6 +20,28 @@
                 document.documentElement.classList.remove('dark');
             }
         </script>
+        <style>
+            /* Optional: Add a bit more styling for the carousel dots if needed */
+            .carousel-dot {
+                cursor: pointer;
+                height: 12px;
+                width: 12px;
+                margin: 0 5px;
+                background-color: #bbb;
+                border-radius: 50%;
+                display: inline-block;
+                transition: background-color 0.6s ease;
+            }
+            .carousel-dot.active {
+                background-color: #007bff; /* Or your theme's primary color */
+            }
+            .dark .carousel-dot.active {
+                background-color: #3b82f6; /* A blue that works in dark mode */
+            }
+            .dark .carousel-dot {
+                background-color: #4b5563; /* Darker inactive dot */
+            }
+        </style>
     </head>
     <body class="antialiased">
         <!-- Navigation -->
@@ -42,7 +64,7 @@
                             <span>+258 84 427 8012</span>
                         </div>
                     </div>
-                    
+
                     <!-- Navigation Buttons -->
                     <button class="bg-blue-500 bg-opacity-50 text-white px-6 py-2 rounded-md hover:bg-opacity-75 transition">
                         PRODUTOS
@@ -50,7 +72,7 @@
                     <button class="bg-blue-500 bg-opacity-50 text-white px-6 py-2 rounded-md hover:bg-opacity-75 transition">
                         MAIS POPULARES
                     </button>
-                    
+
                     <!-- Search Bar -->
                     <div class="search-container relative">
                         <input
@@ -81,24 +103,42 @@
         <!-- Hero Section -->
         <section class="hero-section">
             <div class="hero-content">
-                <div class="hero-container">
-                    <div class="hero-text-content">
+                <!-- Modified hero-container to use flex -->
+                <div class="hero-container flex flex-col md:flex-row items-center md:space-x-8">
+                    <!-- Text Content -->
+                    <div class="hero-text-content md:w-1/2 lg:w-3/5 text-center md:text-left">
                         <h1 class="text-3xl md:text-4xl font-bold mb-6">
                             Somos sua parceira criativa em design gráfico e impressão
                         </h1>
-                        
-                        <p class="text-gray-600 mb-8">
-                            Oferecendo desde cartões de visita e folhetos personalizados até banners vibrantes. 
-                            Com um processo simples, rápido e eficiente, cuidamos de cada detalhe para 
+
+                        <p class="text-gray-600 dark:text-gray-300 mb-8">
+                            Oferecendo desde cartões de visita e folhetos personalizados até banners vibrantes.
+                            Com um processo simples, rápido e eficiente, cuidamos de cada detalhe para
                             superar suas expectativas.
                         </p>
-                        
+
                         <div class="bg-blue-500 text-white px-8 py-3 rounded-full inline-block">
                             Entregamos qualidade e praticidade directo na sua porta!
                         </div>
-                        
-                        <div class="mt-6">
+
+                        <div class="mt-6 text-gray-700 dark:text-gray-200">
                             Faça já sua ordem 👉👉👉
+                        </div>
+                    </div>
+
+                    <!-- Carousel Section -->
+                    <div class="hero-carousel-wrapper md:w-1/2 lg:w-2/5 mt-8 md:mt-0">
+                        <div id="heroCarousel" class="relative overflow-hidden rounded-lg shadow-xl mx-auto" style="max-width: 450px;">
+                            <div class="carousel-slides flex transition-transform duration-700 ease-in-out">
+                                <!-- Images from public/images/carousel/ -->
+                                <img src="{{ asset('images/carousel/image 01.png') }}" alt="Carousel Image 1" class="w-full flex-shrink-0 object-cover" style="aspect-ratio: 16/10;">
+                                <img src="{{ asset('images/carousel/image 02.png') }}" alt="Carousel Image 2" class="w-full flex-shrink-0 object-cover" style="aspect-ratio: 16/10;">
+                                <img src="{{ asset('images/carousel/image 03.png') }}" alt="Carousel Image 3" class="w-full flex-shrink-0 object-cover" style="aspect-ratio: 16/10;">
+                            </div>
+                            <!-- Navigation Dots -->
+                            <div class="carousel-dots absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                                <!-- Dots will be generated by JS -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -109,7 +149,7 @@
         <section class="py-16">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center mb-12">NOSSOS PRODUTOS</h2>
-                
+
                 <!-- Initial 6 Products Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <!-- 1. Cartões de Visita -->
@@ -123,7 +163,7 @@
                                 <span class="text-blue-900 dark:text-blue-300 font-semibold">10.00Mt Cada</span>
                                 <div class="flex items-center border dark:border-gray-600 rounded">
                                     <button class="px-2 py-1 text-blue-500">-</button>
-                                    <span class="px-4 border-x">01</span>
+                                    <span class="px-4 border-x dark:border-gray-600">01</span>
                                     <button class="px-2 py-1 text-blue-500">+</button>
                                 </div>
                             </div>
@@ -141,7 +181,7 @@
                                 <span class="text-blue-900 dark:text-blue-300 font-semibold">10.00Mt Cada</span>
                                 <div class="flex items-center border dark:border-gray-600 rounded">
                                     <button class="px-2 py-1 text-blue-500">-</button>
-                                    <span class="px-4 border-x">01</span>
+                                    <span class="px-4 border-x dark:border-gray-600">01</span>
                                     <button class="px-2 py-1 text-blue-500">+</button>
                                 </div>
                             </div>
@@ -159,7 +199,7 @@
                                 <span class="text-blue-900 dark:text-blue-300 font-semibold">10.00Mt Cada</span>
                                 <div class="flex items-center border dark:border-gray-600 rounded">
                                     <button class="px-2 py-1 text-blue-500">-</button>
-                                    <span class="px-4 border-x">01</span>
+                                    <span class="px-4 border-x dark:border-gray-600">01</span>
                                     <button class="px-2 py-1 text-blue-500">+</button>
                                 </div>
                             </div>
@@ -177,7 +217,7 @@
                                 <span class="text-blue-900 dark:text-blue-300 font-semibold">10.00Mt Cada</span>
                                 <div class="flex items-center border dark:border-gray-600 rounded">
                                     <button class="px-2 py-1 text-blue-500">-</button>
-                                    <span class="px-4 border-x">01</span>
+                                    <span class="px-4 border-x dark:border-gray-600">01</span>
                                     <button class="px-2 py-1 text-blue-500">+</button>
                                 </div>
                             </div>
@@ -195,7 +235,7 @@
                                 <span class="text-blue-900 dark:text-blue-300 font-semibold">10.00Mt Cada</span>
                                 <div class="flex items-center border dark:border-gray-600 rounded">
                                     <button class="px-2 py-1 text-blue-500">-</button>
-                                    <span class="px-4 border-x">01</span>
+                                    <span class="px-4 border-x dark:border-gray-600">01</span>
                                     <button class="px-2 py-1 text-blue-500">+</button>
                                 </div>
                             </div>
@@ -213,7 +253,7 @@
                                 <span class="text-blue-900 dark:text-blue-300 font-semibold">10.00Mt Cada</span>
                                 <div class="flex items-center border dark:border-gray-600 rounded">
                                     <button class="px-2 py-1 text-blue-500">-</button>
-                                    <span class="px-4 border-x">01</span>
+                                    <span class="px-4 border-x dark:border-gray-600">01</span>
                                     <button class="px-2 py-1 text-blue-500">+</button>
                                 </div>
                             </div>
@@ -234,7 +274,7 @@
                                 <span class="text-blue-900 dark:text-blue-300 font-semibold">10.00Mt Cada</span>
                                 <div class="flex items-center border dark:border-gray-600 rounded">
                                     <button class="px-2 py-1 text-blue-500">-</button>
-                                    <span class="px-4 border-x">01</span>
+                                    <span class="px-4 border-x dark:border-gray-600">01</span>
                                     <button class="px-2 py-1 text-blue-500">+</button>
                                 </div>
                             </div>
@@ -252,7 +292,7 @@
                                 <span class="text-blue-900 dark:text-blue-300 font-semibold">10.00Mt Cada</span>
                                 <div class="flex items-center border dark:border-gray-600 rounded">
                                     <button class="px-2 py-1 text-blue-500">-</button>
-                                    <span class="px-4 border-x">01</span>
+                                    <span class="px-4 border-x dark:border-gray-600">01</span>
                                     <button class="px-2 py-1 text-blue-500">+</button>
                                 </div>
                             </div>
@@ -270,7 +310,7 @@
                                 <span class="text-blue-900 dark:text-blue-300 font-semibold">10.00Mt Cada</span>
                                 <div class="flex items-center border dark:border-gray-600 rounded">
                                     <button class="px-2 py-1 text-blue-500">-</button>
-                                    <span class="px-4 border-x">01</span>
+                                    <span class="px-4 border-x dark:border-gray-600">01</span>
                                     <button class="px-2 py-1 text-blue-500">+</button>
                                 </div>
                             </div>
@@ -288,7 +328,7 @@
                                 <span class="text-blue-900 dark:text-blue-300 font-semibold">10.00Mt Cada</span>
                                 <div class="flex items-center border dark:border-gray-600 rounded">
                                     <button class="px-2 py-1 text-blue-500">-</button>
-                                    <span class="px-4 border-x">01</span>
+                                    <span class="px-4 border-x dark:border-gray-600">01</span>
                                     <button class="px-2 py-1 text-blue-500">+</button>
                                 </div>
                             </div>
@@ -306,7 +346,7 @@
                                 <span class="text-blue-900 dark:text-blue-300 font-semibold">10.00Mt Cada</span>
                                 <div class="flex items-center border dark:border-gray-600 rounded">
                                     <button class="px-2 py-1 text-blue-500">-</button>
-                                    <span class="px-4 border-x">01</span>
+                                    <span class="px-4 border-x dark:border-gray-600">01</span>
                                     <button class="px-2 py-1 text-blue-500">+</button>
                                 </div>
                             </div>
@@ -324,7 +364,7 @@
                                 <span class="text-blue-900 dark:text-blue-300 font-semibold">10.00Mt Cada</span>
                                 <div class="flex items-center border dark:border-gray-600 rounded">
                                     <button class="px-2 py-1 text-blue-500">-</button>
-                                    <span class="px-4 border-x">01</span>
+                                    <span class="px-4 border-x dark:border-gray-600">01</span>
                                     <button class="px-2 py-1 text-blue-500">+</button>
                                 </div>
                             </div>
@@ -342,7 +382,7 @@
                                 <span class="text-blue-900 dark:text-blue-300 font-semibold">10.00Mt Cada</span>
                                 <div class="flex items-center border dark:border-gray-600 rounded">
                                     <button class="px-2 py-1 text-blue-500">-</button>
-                                    <span class="px-4 border-x">01</span>
+                                    <span class="px-4 border-x dark:border-gray-600">01</span>
                                     <button class="px-2 py-1 text-blue-500">+</button>
                                 </div>
                             </div>
@@ -360,7 +400,7 @@
                                 <span class="text-blue-900 dark:text-blue-300 font-semibold">10.00Mt Cada</span>
                                 <div class="flex items-center border dark:border-gray-600 rounded">
                                     <button class="px-2 py-1 text-blue-500">-</button>
-                                    <span class="px-4 border-x">01</span>
+                                    <span class="px-4 border-x dark:border-gray-600">01</span>
                                     <button class="px-2 py-1 text-blue-500">+</button>
                                 </div>
                             </div>
@@ -378,7 +418,7 @@
                                 <span class="text-blue-900 dark:text-blue-300 font-semibold">10.00Mt Cada</span>
                                 <div class="flex items-center border dark:border-gray-600 rounded">
                                     <button class="px-2 py-1 text-blue-500">-</button>
-                                    <span class="px-4 border-x">01</span>
+                                    <span class="px-4 border-x dark:border-gray-600">01</span>
                                     <button class="px-2 py-1 text-blue-500">+</button>
                                 </div>
                             </div>
@@ -396,7 +436,7 @@
                                 <span class="text-blue-900 dark:text-blue-300 font-semibold">10.00Mt Cada</span>
                                 <div class="flex items-center border dark:border-gray-600 rounded">
                                     <button class="px-2 py-1 text-blue-500">-</button>
-                                    <span class="px-4 border-x">01</span>
+                                    <span class="px-4 border-x dark:border-gray-600">01</span>
                                     <button class="px-2 py-1 text-blue-500">+</button>
                                 </div>
                             </div>
@@ -409,7 +449,7 @@
                     <button onclick="toggleProducts()" class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-md transition-colors">
                         MOSTRAR TUDO
                     </button>
-                    
+
                     <button class="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-md transition-colors flex items-center gap-2">
                         <i class="fas fa-shopping-cart"></i>
                         FAZER ORDEM / CHECKOUT
@@ -422,15 +462,15 @@
         <section class="py-16">
             <div class="container mx-auto px-4 mt-12">
                 <!-- Change bg-gray-800/40 to bg-gray-100 (light grey-white) and remove backdrop-blur-sm -->
-                <div class="bg-gray-100 rounded-lg p-8 max-w-3xl mx-auto">
+                <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-8 max-w-3xl mx-auto">
                     <div class="text-center">
-                        <p class="mb-4 text-gray-700"> <!-- Update text color for better contrast -->
+                        <p class="mb-4 text-gray-700 dark:text-gray-200"> <!-- Update text color for better contrast -->
                             Somos uma empresa jovem e dinâmica, impulsionada pela energia e criatividade da nova geração. Com uma equipe cheia de entusiasmo e eficiência, transformamos ideias em soluções inovadoras, sempre com um toque de modernidade e agilidade.
                         </p>
-                        <p class="text-gray-700"> <!-- Update text color for better contrast -->
-                            Na <span class="font-bold text-gray-900 dark:text-gray-900">Tri-Color Design</span> a juventude é nossa força, e a inovação, nosso compromisso!
+                        <p class="text-gray-700 dark:text-gray-200"> <!-- Update text color for better contrast -->
+                            Na <span class="font-bold text-gray-900 dark:text-white">Tri-Color Design</span> a juventude é nossa força, e a inovação, nosso compromisso!
                         </p>
-        
+
                         <!-- WhatsApp Button -->
                         <a href="#" class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-md transition-colors mt-6">
                             <i class="fab fa-whatsapp text-xl"></i>
@@ -447,59 +487,59 @@
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <!-- Logo Column -->
                     <div>
-                        <img 
-                            src="{{ asset('images/logo_black.png') }}" 
-                            alt="Tri Color Design" 
+                        <img
+                            src="{{ asset('images/logo_black.png') }}"
+                            alt="Tri Color Design"
                             class="w-48 mb-4 dark:hidden"
                         >
-                        <img 
-                            src="{{ asset('images/logo_white_footer.png') }}" 
-                            alt="Tri Color Design" 
+                        <img
+                            src="{{ asset('images/logo_white_footer.png') }}"
+                            alt="Tri Color Design"
                             class="w-48 mb-4 hidden dark:block"
                         >
                     </div>
 
                     <!-- About Column -->
                     <div>
-                        <h3 class="text-lg font-semibold mb-4">Sobre a Tri Color</h3>
+                        <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">Sobre a Tri Color</h3>
                         <ul class="space-y-2">
-                            <li><a href="#" class="text-gray-600 hover:text-gray-900">Termos e Condições</a></li>
-                            <li><a href="#" class="text-gray-600 hover:text-gray-900">Subscreva ao nosso canal do whatsapp</a></li>
-                            <li><a href="#" class="text-gray-600 hover:text-gray-900">Condições de entrega</a></li>
+                            <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Termos e Condições</a></li>
+                            <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Subscreva ao nosso canal do whatsapp</a></li>
+                            <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Condições de entrega</a></li>
                         </ul>
                     </div>
 
                     <!-- Resources Column -->
                     <div>
-                        <h3 class="text-lg font-semibold mb-4">Recursos</h3>
+                        <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">Recursos</h3>
                         <ul class="space-y-2">
-                            <li><a href="#" class="text-gray-600 hover:text-gray-900">Serviços de Design</a></li>
-                            <li><a href="#" class="text-gray-600 hover:text-gray-900">Regras de Submissão de Design</a></li>
-                            <li><a href="#" class="text-gray-600 hover:text-gray-900">Templates</a></li>
+                            <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Serviços de Design</a></li>
+                            <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Regras de Submissão de Design</a></li>
+                            <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Templates</a></li>
                         </ul>
                     </div>
 
                     <!-- Products Column -->
                     <div>
-                        <h3 class="text-lg font-semibold mb-4">Produtos da Tri Color</h3>
+                        <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">Produtos da Tri Color</h3>
                         <ul class="space-y-2">
-                            <li><a href="#" class="text-gray-600 hover:text-gray-900">Produtos da Tri Color</a></li>
-                            <li><a href="#" class="text-gray-600 hover:text-gray-900">Mais solicitados</a></li>
-                            <li><a href="#" class="text-gray-600 hover:text-gray-900">Banners e Roll ups</a></li>
+                            <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Produtos da Tri Color</a></li>
+                            <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Mais solicitados</a></li>
+                            <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Banners e Roll ups</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </footer>
 
-        <!-- Add this before your closing body tag -->
+        <!-- Dark Mode Toggle Script -->
         <script>
             const darkModeToggle = document.getElementById('darkModeToggle');
-            
+
             darkModeToggle.addEventListener('click', () => {
                 // Toggle dark mode
                 document.documentElement.classList.toggle('dark');
-                
+
                 // Save preference
                 if (document.documentElement.classList.contains('dark')) {
                     localStorage.theme = 'dark';
@@ -509,11 +549,12 @@
             });
         </script>
 
+        <!-- Products Toggle Script -->
         <script>
         function toggleProducts() {
             const extraProducts = document.getElementById('extraProducts');
             const button = event.currentTarget;
-            
+
             if (extraProducts.classList.contains('hidden')) {
                 extraProducts.classList.remove('hidden');
                 button.textContent = 'MOSTRAR MENOS';
@@ -522,6 +563,67 @@
                 button.textContent = 'MOSTRAR TUDO';
             }
         }
+        </script>
+
+        <!-- Hero Carousel Script -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const carousel = document.getElementById('heroCarousel');
+                if (!carousel) return; // Exit if carousel element not found
+
+                const slidesContainer = carousel.querySelector('.carousel-slides');
+                const slides = Array.from(slidesContainer.children);
+                const dotsContainer = carousel.querySelector('.carousel-dots');
+                const totalSlides = slides.length;
+                let currentIndex = 0;
+                let slideInterval;
+
+                if (totalSlides === 0) return; // Exit if no slides
+
+                // Create dots
+                for (let i = 0; i < totalSlides; i++) {
+                    const dot = document.createElement('span');
+                    dot.classList.add('carousel-dot');
+                    if (i === 0) dot.classList.add('active');
+                    dot.addEventListener('click', () => {
+                        goToSlide(i);
+                        resetInterval();
+                    });
+                    dotsContainer.appendChild(dot);
+                }
+                const dots = Array.from(dotsContainer.children);
+
+                function updateDots() {
+                    dots.forEach((dot, index) => {
+                        dot.classList.toggle('active', index === currentIndex);
+                    });
+                }
+
+                function goToSlide(index) {
+                    if (index < 0 || index >= totalSlides) return;
+                    slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+                    currentIndex = index;
+                    updateDots();
+                }
+
+                function nextSlide() {
+                    let nextIndex = (currentIndex + 1) % totalSlides;
+                    goToSlide(nextIndex);
+                }
+
+                function resetInterval() {
+                    clearInterval(slideInterval);
+                    slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+                }
+
+                // Initial setup
+                goToSlide(0); // Ensure first slide is shown correctly
+                resetInterval(); // Start auto-play
+
+                // Optional: Pause on hover
+                carousel.addEventListener('mouseenter', () => clearInterval(slideInterval));
+                carousel.addEventListener('mouseleave', () => resetInterval());
+            });
         </script>
     </body>
 </html>
