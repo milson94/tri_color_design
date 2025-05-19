@@ -33,6 +33,19 @@
     gap: 0.5rem;
 }
 
+/* Customize name overlay */
+.product-name-overlay {
+    font-size: 1.2rem;  /* Adjust text size */
+    font-weight: bold;
+    padding: 0.5rem;   /* Adjust padding */
+    background-color: rgba(0, 0, 0, 0.6); /* Adjust opacity */
+}
+
+/* Adjust image height for all product boxes */
+.product-image {
+    height: 200px; /* Adjust the height as needed */
+}
+
 .search-container {
     width: 100%;
 }
