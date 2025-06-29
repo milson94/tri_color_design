@@ -1,0 +1,13 @@
+{
+    "name": "laravel-project",
+    "version": "1.0.0",
+    "description": "Laravel project with basic frontend dependencies",
+    "private": true,
+    "scripts": {
+        "dev": "echo 'No build process needed - using CDN assets'",
+        "build": "echo 'No build process needed - using CDN assets'",
+        "watch": "echo 'No build process needed - using CDN assets'"
+    },
+    "devDependencies": {},
+    "dependencies": {}
+}
