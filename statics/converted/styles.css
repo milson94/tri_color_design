@@ -1,0 +1,736 @@
+/* Custom CSS from welcome.txt and index.txt inline styles */
+
+/* Optional: Add a bit more styling for the carousel dots if needed */
+.carousel-dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.carousel-dot.active {
+    background-color: #007bff; /* Or your theme's primary color */
+}
+
+.dark .carousel-dot.active {
+    background-color: #3b82f6; /* A blue that works in dark mode */
+}
+
+.dark .carousel-dot {
+    background-color: #4b5563; /* Darker inactive dot */
+}
+
+.product-item { /* Added class to style each individual product container*/
+    transition: opacity 0.5s ease; /* Add a smooth transition */
+    opacity: 1;
+}
+
+.product-item.fade-out {
+    opacity: 0;
+}
+
+.product-item.fade-in {
+    opacity: 1;
+}
+
+.product-name-overlay {
+    font-size: 1.2rem; /* Adjust text size */
+    font-weight: bold;
+    padding: 0.5rem; /* Adjust padding */
+    background-color: rgba(0, 0, 0, 0.6); /* Adjust opacity */
+}
+
+/* Adjust image height for all product boxes */
+.product-image {
+    height: 210px; /* Taller boxes, 5% increase */
+}
+
+
+/* Base styles */
+.container {
+    width: 100%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Navigation styles */
+.nav-wrapper {
+    padding: 1rem;
+    background: linear-gradient(to right, #2563eb, #22d3ee);
+}
+
+.nav-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.nav-logo {
+    width: 150px;
+}
+
+.nav-contact {
+    display: none;
+}
+
+.nav-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Customize name overlay */
+.product-name-overlay {
+    font-size: 1.2rem;  /* Adjust text size */
+    font-weight: bold;
+    padding: 0.5rem;   /* Adjust padding */
+    background-color: rgba(0, 0, 0, 0.6); /* Adjust opacity */
+}
+
+/* Adjust image height for all product boxes */
+/* This rule is duplicated, keeping the one with 210px as it's newer based on index.txt inline style */
+/* .product-image {
+    height: 200px;
+} */
+
+.search-container {
+    width: 100%;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+}
+
+/* Hero section styles */
+.hero-section {
+    position: relative;
+    padding: 4rem 1rem;
+    background: linear-gradient(
+        to right,
+        rgba(219, 234, 254, 0.95),
+        rgba(212, 231, 255, 0.85),
+        rgba(255, 255, 255, 0.8)
+    );
+}
+
+.hero-content {
+    position: relative;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.hero-container {
+    position: relative;
+    background-image: url('images/hero_image.png'); /* Updated path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 3rem;
+}
+
+.hero-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('images/hero_image.png'); /* Updated path */
+     background: linear-gradient(
+        to left,
+        rgba(209, 229, 255, 0.95), /* Light blue (tailwind blue-100) */
+        rgba(221, 251, 255, 0.85), /* Medium light blue (tailwind blue-200) */
+        rgba(255, 255, 255, 0.8)   /* Fading to white */
+    );
+    border-radius: 1rem;
+}
+
+.hero-text-content {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+}
+
+.hero-title {
+    font-size: 1.875rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero-text {
+    color: #4b5563;
+    margin-bottom: 1.5rem;
+}
+
+.hero-cta {
+    background: #3b82f6;
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.hero-order {
+    font-size: 1.125rem;
+    margin-top: 1rem;
+}
+
+.hero-images {
+    width: 50%;
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.hero-image {
+    width: 45%;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Products section styles */
+.products-section {
+    padding: 2rem 0;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.product-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* .product-image { */
+/* This rule is duplicated, keeping the one with 210px as it's newer based on index.txt inline style */
+/*    height: 200px;
+    background-color: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+.product-title {
+    background-color: #3b82f6;
+    color: white;
+    padding: 0.5rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+.product-details {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-price {
+    color: #1e3a8a;
+    font-weight: 600;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.375rem;
+}
+
+.quantity-btn {
+    padding: 0.25rem 0.75rem;
+    color: #3b82f6;
+    cursor: pointer;
+}
+
+.quantity-value {
+    padding: 0.25rem 1rem;
+    border-left: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;
+}
+
+/* Dark mode styles */
+.dark body {
+    background-color: #0f172a;
+}
+
+/* Navigation dark mode */
+.dark .nav-gradient {
+    background: linear-gradient(
+        to right,
+        #1e3a8a,
+        #155e75
+    );
+}
+
+/* Hero section dark mode */
+.dark .hero-section {
+    background: linear-gradient(
+        to right,
+        rgba(30, 58, 138, 0.95),
+        rgba(30, 58, 138, 0.85),
+        rgba(30, 58, 138, 0.8)
+    );
+}
+
+/* Products section dark mode */
+.dark .products-section {
+    background-color: #0f172a;
+}
+
+.dark .products-section h2 {
+    color: #fff;
+}
+
+.dark [class*="CARTÕES"],
+.dark [class*="FOLHETOS"],
+.dark [class*="CONVITES"],
+.dark [class*="CAMISETES"],
+.dark [class*="BANDEIRAS"],
+.dark [class*="INDICADORES"] {
+    background-color: #1e293b;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+.dark [class*="CARTÕES"] h3,
+.dark [class*="FOLHETOS"] h3,
+.dark [class*="CONVITES"] h3,
+.dark [class*="CAMISETES"] h3,
+.dark [class*="BANDEIRAS"] h3,
+.dark [class*="INDICADORES"] h3 {
+    background-color: #2563eb;
+    color: #fff;
+}
+
+.dark .product-price {
+    color: #60a5fa;
+}
+
+.dark .quantity-controls {
+    border-color: #334155;
+    background-color: #1e293b;
+}
+
+.dark .quantity-value {
+    color: #e5e7eb;
+    border-color: #334155;
+}
+
+.dark .quantity-btn {
+    color: #60a5fa;
+}
+
+/* Pagination dark mode */
+.dark .pagination {
+    color: #e5e7eb;
+}
+
+.dark .pagination button {
+    color: #60a5fa;
+}
+
+/* Order button dark mode */
+.dark .fazer-ordem {
+    background-color: #2563eb;
+    color: #fff;
+}
+
+.dark .fazer-ordem:hover {
+    background-color: #1d4ed8;
+}
+
+/* Image placeholders dark mode */
+.dark .product-image-placeholder {
+    background-color: #334155;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* About section styles */
+.about-container {
+    padding: 1rem;
+}
+
+.about-content {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+/* Footer styles */
+.footer-wrapper {
+    padding: 2rem 1rem;
+    background-color: #f3f4f6;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.footer-logo {
+    width: 192px;
+    height: auto;
+    content: url('images/logo_black.png'); /* Light mode - black logo */
+}
+
+.dark .footer-logo {
+    content: url('images/logo_white_footer.png'); /* Dark mode - white logo */
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+    .container {
+        max-width: 768px;
+    }
+
+    .nav-content {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nav-contact {
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    .nav-buttons {
+        flex-direction: row;
+    }
+
+    .search-container {
+        width: auto;
+    }
+
+    .hero-content {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        padding: 2rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1024px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1280px;
+    }
+}
+
+/* Custom styles to enhance Tailwind */
+.nav-gradient {
+    background: linear-gradient(to right, #2563eb, #22d3ee);
+    padding: 1.5rem 0;
+}
+
+.nav-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+@media (max-width: 768px) {
+    .nav-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+    }
+
+    .search-container {
+        width: 100%;
+    }
+
+    .nav-contact {
+        display: none;
+    }
+}
+
+/* Product grid responsiveness */
+@media (max-width: 768px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 2rem 1rem;
+        margin: 0.5rem;
+    }
+
+    .hero-container {
+        padding: 2rem 1rem;
+    }
+
+    .hero-text-content {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Dark mode styles for product boxes */
+.dark .bg-white {
+    background-color: #1e293b; /* Dark blue background */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+.dark .bg-gray-200 {
+    background-color: #334155; /* Slightly lighter dark blue for image placeholder */
+}
+
+.dark .text-gray-400 {
+    color: #94a3b8; /* Lighter color for placeholder icon */
+}
+
+.dark .text-blue-900 {
+    color: #60a5fa; /* Light blue for price text */
+}
+
+.dark .bg-blue-500 {
+    background-color: #2563eb; /* Slightly darker blue for title background */
+}
+
+.dark .border {
+    border-color: #334155; /* Dark blue for borders */
+}
+
+.dark .border-x {
+    border-color: #334155;
+}
+
+.dark .text-blue-500 {
+    color: #60a5fa; /* Light blue for buttons and interactive elements */
+}
+
+.dark span:not([class*="text"]) {
+    color: #e5e7eb; /* Light gray for other text */
+}
+
+/* Dark mode hover states */
+.dark .hover\:bg-blue-600:hover {
+    background-color: #1d4ed8;
+}
+
+.dark .shadow-md {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark mode text colors */
+.dark .about-section p,
+.dark .about-section span,
+.dark .about-section .company-name {
+    color: #ffffff;
+}
+
+/* Specific style for the company name in italic */
+.dark .about-section .company-name {
+    font-style: italic;
+    color: #ffffff;
+}
+
+/* WhatsApp button remains green */
+.dark .whatsapp-button {
+    background-color: #25D366;
+    color: white;
+}
+
+/* Container background in dark mode */
+.dark .about-container {
+    background-color: #1e293b;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+/* Dark mode text colors for specific sections */
+.dark h2.text-3xl {
+    color: #ffffff; /* White color for "NOSSOS PRODUTOS" */
+}
+
+/* Dark mode for the card text above WhatsApp button */
+.dark .hero-container p,
+.dark .about-container p {
+    color: #ffffff;
+}
+
+/* Dark mode footer background */
+.dark footer {
+    background: linear-gradient(
+        to right,
+        rgba(30, 58, 138, 0.95),  /* Darker blue */
+        rgba(30, 58, 138, 0.85),
+        rgba(30, 58, 138, 0.8)
+    );
+}
+
+/* Footer text colors in dark mode */
+.dark footer h3 {
+    color: #ffffff;
+}
+
+.dark footer a {
+    color: #e5e7eb;
+}
+
+.dark footer a:hover {
+    color: #ffffff;
+}
+
+/* Keep existing dark mode styles */
+.dark .bg-white {
+    background-color: #1e293b;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+/* Hero section text colors */
+.hero-text-content h1 {
+    color: #000000; /* Black text for main heading */
+}
+
+.hero-text-content p {
+    color: #000000; /* Black text for description */
+}
+
+/* Dark mode styles */
+.dark .about-container p {
+    color: #ffffff; /* White text for the about section text */
+}
+
+.dark .about-container .company-name {
+    color: #ffffff; /* White text for company name */
+}
+
+.dark h2.text-3xl {
+    color: #ffffff; /* White text for "NOSSOS PRODUTOS" */
+}
+
+/* Keep the hero section text black even in dark mode */
+.dark .hero-text-content h1,
+.dark .hero-text-content p {
+    color: #000000;
+}
+
+/* Navigation responsive styles */
+@media (max-width: 1265px) {
+    .nav-contact {
+        display: none; /* Hide email and phone */
+    }
+
+    /* Adjust spacing for remaining elements */
+    .nav-content {
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    /* Keep logo visible */
+    .nav-logo {
+        width: 150px; /* Adjust if needed */
+    }
+
+    /* Ensure buttons and search stay aligned */
+    .nav-buttons {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+/* Dark mode styles */
+.dark footer img {
+    content: url('images/logo_white_footer.png');
+}
+
+/* Keep existing nav styles */
+.nav-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+@media (max-width: 1265px) {
+    .nav-gradient {
+        padding: 1rem 0;
+    }
+
+    .nav-content {
+        gap: 1.5rem;
+    }
+
+    .nav-buttons {
+        gap: 1rem;
+    }
+}
+
+/* Dark mode specific changes */
+.dark .about-container p {
+    color: #ffffff;
+}
+
+.dark .about-container .company-name {
+    color: #ffffff;
+    font-style: italic;
+}
+
+.dark footer img {
+    content: url('images/logo_white_footer.png');
+}
+
+
+
+// the one I got from the ai-studio 

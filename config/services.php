@@ -13,6 +13,10 @@ return [
     | a conventional file to locate the various service credentials.
     |
     */
+    'mpesa' => [
+        'api_key' => env('MPESA_API_KEY'),
+        'public_key' => env('MPESA_PUBLIC_KEY'),
+    ],
 
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),

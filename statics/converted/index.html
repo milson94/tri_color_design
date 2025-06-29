@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tri-Color Design</title>
+
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Check initial dark mode preference (kept inline for immediate application) -->
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+</head>
+<body class="antialiased bg-gray-50 dark:bg-gray-900">
+
+<!-- Left Sidebar -->
+<aside class="fixed top-0 left-0 h-full w-16 bg-sidebar-dark text-white z-50 flex flex-col items-center py-6 space-y-6 md:space-y-8">
+    <!-- Main Logo (Top of sidebar, as seen in screenshot) -->
+    <img src="images/logo_white_footer.png" alt="Logo" class="w-10 h-auto mb-6 md:mb-8">
+    <!-- Icons -->
+    <a href="#" class="sidebar-icon active-icon" title="Home"><i class="fas fa-home text-2xl"></i></a>
+    <a href="#" class="sidebar-icon" title="Products"><i class="fas fa-tag text-2xl"></i></a>
+    <a href="#" class="sidebar-icon" title="Orders"><i class="fas fa-boxes text-2xl"></i></a>
+    <a href="#" class="sidebar-icon" title="Store"><i class="fas fa-store text-2xl"></i></a>
+    <a href="#" class="sidebar-icon" title="Promotions"><i class="fas fa-gift text-2xl"></i></a>
+    <a href="#" class="sidebar-icon" title="Whatsapp Channel"><i class="fab fa-whatsapp text-2xl"></i></a>
+    <a href="#" class="sidebar-icon" title="Exit"><i class="fas fa-times text-2xl"></i></a>
+</aside>
+
+<!-- Right Sidebar -->
+<aside class="fixed top-0 right-0 h-full w-16 bg-sidebar-dark text-white z-50 flex flex-col items-center justify-end py-6 space-y-6 md:space-y-8">
+    <!-- Placeholder for chat, notifications, etc. -->
+    <a href="#" class="sidebar-icon" title="Settings"><i class="fas fa-cog text-2xl"></i></a>
+    <a href="#" class="sidebar-icon relative" title="Notifications">
+        <i class="fas fa-bell text-2xl"></i>
+        <span class="absolute -top-1 -right-1 bg-blue-500 text-xs text-white rounded-full h-4 w-4 flex items-center justify-center">2</span>
+    </a>
+    <a href="#" class="sidebar-icon" title="Menu"><i class="fas fa-bars text-2xl"></i></a>
+    <a href="#" class="sidebar-icon" title="Chat"><i class="fas fa-comments text-2xl"></i></a>
+    <a href="#" class="sidebar-icon" title="Design Tools"><i class="fas fa-palette text-2xl"></i></a>
+</aside>
+
+<!-- Main Content Area -->
+<div class="main-content ml-16 mr-16"> <!-- Adjusted margin to account for sidebars -->
+
+    <!-- Top Navigation (simplified) -->
+    <nav class="sticky top-0 bg-white dark:bg-gray-900 z-40 shadow-sm py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-end space-x-4 md:space-x-6">
+                <button class="bg-blue-500 bg-opacity-50 text-white px-4 py-2 rounded-md hover:bg-opacity-75 transition text-sm md:text-base">
+                    PRODUTOS
+                </button>
+                <button class="bg-blue-500 bg-opacity-50 text-white px-4 py-2 rounded-md hover:bg-opacity-75 transition text-sm md:text-base">
+                    MAIS POPULARES
+                </button>
+                <div class="search-container relative">
+                    <input
+                        type="text"
+                        placeholder="buscar"
+                        class="px-4 py-2 rounded-md w-32 md:w-48 border border-gray-300 dark:bg-gray-700 dark:border-gray-600 dark:text-white text-sm md:text-base"
+                    >
+                    <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
+                </div>
+                <!-- Dark Mode Toggle -->
+                <div class="relative flex items-center">
+                    <button id="darkModeToggle" class="text-gray-700 dark:text-white hover:text-gray-900 dark:hover:text-gray-200 transition-colors">
+                        <!-- Sun icon for light mode -->
+                        <svg class="w-6 h-6 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                        <!-- Moon icon for dark mode -->
+                        <svg class="w-6 h-6 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section py-8 md:py-12 px-4 bg-gradient-to-r from-blue-100 to-white dark:from-blue-900 dark:to-gray-900">
+        <div class="container mx-auto">
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-6 md:p-8 flex flex-col md:flex-row items-center md:space-x-8">
+                <!-- Text Content -->
+                <div class="hero-text-content md:w-1/2 lg:w-3/5 text-center md:text-left relative">
+                    <!-- "GRÁFICA ONLINE" and small logo -->
+                    <div class="flex items-center space-x-2 mb-4 md:mb-0 md:absolute md:-top-6 md:left-0">
+                        <img src="images/logo_white_footer.png" alt="Small Logo" class="w-6 h-6"> <!-- Using an existing logo -->
+                        <span class="text-yellow-500 font-bold text-xs md:text-sm uppercase whitespace-nowrap">GRÁFICA ONLINE</span>
+                    </div>
+
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-black mt-4 md:mt-0">
+                        Somos sua parceira criativa em design gráfico e impressão
+                    </h1>
+
+                    <p class="text-gray-600 dark:text-black mb-6 md:mb-8">
+                        Oferecendo desde cartões de visita e folhetos personalizados até banners vibrantes.
+                        Com um processo simples, rápido e eficiente, cuidamos de cada detalhe para
+                        superar suas expectativas.
+                    </p>
+
+                    <a href="#" class="bg-blue-500 text-white px-6 py-3 rounded-full inline-block text-sm md:text-base">
+                        Entregamos qualidade e praticidade directo na sua porta!
+                    </a>
+
+                    <div class="mt-6 text-gray-700 dark:text-gray-300">
+                        Faça já sua ordem 👉👉👉
+                    </div>
+                </div>
+
+                <!-- Carousel Section -->
+                <div class="hero-carousel-wrapper md:w-1/2 lg:w-2/5 mt-8 md:mt-0">
+                    <div id="heroCarousel" class="relative overflow-hidden rounded-lg shadow-xl mx-auto border border-gray-200 dark:border-gray-700"
+                         style="max-width: 450px;">
+                        <div class="carousel-slides flex transition-transform duration-700 ease-in-out">
+                            <!-- Images from images/carousel/ -->
+                            <img src="images/carousel/image 01.png" alt="Carousel Image 1"
+                                 class="w-full flex-shrink-0 object-cover" style="aspect-ratio: 16/10;">
+                            <img src="images/carousel/image 02.png" alt="Carousel Image 2"
+                                 class="w-full flex-shrink-0 object-cover" style="aspect-ratio: 16/10;">
+                            <img src="images/carousel/image 03.png" alt="Carousel Image 3"
+                                 class="w-full flex-shrink-0 object-cover" style="aspect-ratio: 16/10;">
+                        </div>
+                        <!-- Navigation Dots -->
+                        <div class="carousel-dots absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                            <!-- Dots will be generated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">NOSSOS PRODUTOS</h2>
+
+            <!-- Initial 6 Products Grid -->
+            <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 1. Cartões de Visita -->
+                <div class="product-item relative bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                    <img src="images/products/business_card.jpg" alt="Cartões de Visita"
+                         class="w-full h-48 object-cover product-image">
+                    <div class="absolute bottom-4 left-0 w-full bg-gray-900 bg-opacity-50 text-white text-center py-2 product-name-overlay">
+                        <h3 class="font-semibold">CARTÕES DE VISITA</h3>
+                    </div>
+                </div>
+
+                <!-- 2. Folhetos -->
+                <div class="product-item relative bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                    <img src="images/products/flyer.jpg" alt="Folhetos"
+                         class="w-full h-48 object-cover product-image">
+                    <div class="absolute bottom-4 left-0 w-full bg-gray-900 bg-opacity-50 text-white text-center py-2 product-name-overlay">
+                        <h3 class="font-semibold">FOLHETOS</h3>
+                    </div>
+                </div>
+
+                <!-- 3. Convites -->
+                <div class="product-item relative bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                    <img src="images/products/invitation.jpg" alt="Convites"
+                         class="w-full h-48 object-cover product-image">
+                    <div class="absolute bottom-4 left-0 w-full bg-gray-900 bg-opacity-50 text-white text-center py-2 product-name-overlay">
+                        <h3 class="font-semibold">CONVITES</h3>
+                    </div>
+                </div>
+
+                <!-- 4. Camisetes -->
+                <div class="product-item relative bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                    <img src="images/products/tshirt.jpg" alt="Camisetes"
+                         class="w-full h-48 object-cover product-image">
+                    <div class="absolute bottom-4 left-0 w-full bg-gray-900 bg-opacity-50 text-white text-center py-2 product-name-overlay">
+                        <h3 class="font-semibold">CAMISETES</h3>
+                    </div>
+                </div>
+
+                <!-- 5. Bandeiras -->
+                <div class="product-item relative bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                    <img src="images/products/flag.jpg" alt="Bandeiras"
+                         class="w-full h-48 object-cover product-image">
+                    <div class="absolute bottom-4 left-0 w-full bg-gray-900 bg-opacity-50 text-white text-center py-2 product-name-overlay">
+                        <h3 class="font-semibold">BANDEIRAS</h3>
+                    </div>
+                </div>
+
+                <!-- 6. Indicadores de Mesa -->
+                <div class="product-item relative bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                    <img src="images/products/table_sign.jpg" alt="Indicadores de Mesa"
+                         class="w-full h-48 object-cover product-image">
+                    <div class="absolute bottom-4 left-0 w-full bg-gray-900 bg-opacity-50 text-white text-center py-2 product-name-overlay">
+                        <h3 class="font-semibold">INDICADORES DE MESA</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hidden Products Grid -->
+            <div id="extraProducts" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+                <!-- 7. Roll Ups -->
+                <div class="product-item relative bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                    <img src="images/products/roll_up.jpg" alt="Roll Ups"
+                         class="w-full h-48 object-cover product-image">
+                    <div class="absolute bottom-4 left-0 w-full bg-gray-900 bg-opacity-50 text-white text-center py-2 product-name-overlay">
+                        <h3 class="font-semibold">ROLL UPS</h3>
+                    </div>
+                </div>
+
+                <!-- 8. Banners e Backdrops -->
+                <div class="product-item relative bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                    <img src="images/products/banner.jpg" alt="Banners e Backdrops"
+                         class="w-full h-48 object-cover product-image">
+                    <div class="absolute bottom-4 left-0 w-full bg-gray-900 bg-opacity-50 text-white text-center py-2 product-name-overlay">
+                        <h3 class="font-semibold">BANNERS E BACKDROPS</h3>
+                    </div>
+                </div>
+
+                <!-- 9. Vinil e Countervision -->
+                <div class="product-item relative bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                    <img src="images/products/vinyl.jpg" alt="Vinil e Countervision"
+                         class="w-full h-48 object-cover product-image">
+                    <div class="absolute bottom-4 left-0 w-full bg-gray-900 bg-opacity-50 text-white text-center py-2 product-name-overlay">
+                        <h3 class="font-semibold">VINIL E COUNTERVISION</h3>
+                    </div>
+                </div>
+
+                <!-- 10. Placas PVC -->
+                <div class="product-item relative bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                    <img src="images/products/pvc_sign.jpg" alt="Placas PVC" class="w-full h-48 object-cover product-image">
+                    <div class="absolute bottom-4 left-0 w-full bg-gray-900 bg-opacity-50 text-white text-center py-2 product-name-overlay">
+                        <h3 class="font-semibold">FOTOS EM PLACAS PVC</h3>
+                    </div>
+                </div>
+
+                <!-- 11. Bonés Personalizados -->
+                <div class="product-item relative bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                    <img src="images/products/cap.jpg" alt="Bonés Personalizados" class="w-full h-48 object-cover product-image">
+                    <div class="absolute bottom-4 left-0 w-full bg-gray-900 bg-opacity-50 text-white text-center py-2 product-name-overlay">
+                        <h3 class="font-semibold">BONÉS PERSONALIZADOS</h3>
+                    </div>
+                </div>
+
+                <!-- 12. Desenho de Layouts -->
+                <div class="product-item relative bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                    <img src="images/products/layout_design.jpg" alt="Desenho de Layouts"
+                         class="w-full h-48 object-cover product-image">
+                    <div class="absolute bottom-4 left-0 w-full bg-gray-900 bg-opacity-50 text-white text-center py-2 product-name-overlay">
+                        <h3 class="font-semibold">DESENHO DE LAYOUTS</h3>
+                    </div>
+                </div>
+
+                <!-- 13. Blocos de Facturação e Recibo -->
+                <div class="product-item relative bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                    <img src="images/products/invoice_block.jpg" alt="Blocos de Facturação e Recibo"
+                         class="w-full h-48 object-cover product-image">
+                    <div class="absolute bottom-4 left-0 w-full bg-gray-900 bg-opacity-50 text-white text-center py-2 product-name-overlay">
+                        <h3 class="font-semibold">BLOCOS DE FACTURAÇÃO E RECIBO</h3>
+                    </div>
+                </div>
+
+                <!-- 15. Crachás Personalizados -->
+                <div class="product-item relative bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                    <img src="images/products/badge.jpg" alt="Crachás Personalizados"
+                         class="w-full h-48 object-cover product-image">
+                    <div class="absolute bottom-4 left-0 w-full bg-gray-900 bg-opacity-50 text-white text-center py-2 product-name-overlay">
+                        <h3 class="font-semibold">CRACHÁS PERSONALIZADOS</h3>
+                    </div>
+                </div>
+
+                <!-- 16. Edição de Documentos -->
+                <div class="product-item relative bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                    <img src="images/products/document_edit.jpg" alt="Edição de Documentos"
+                         class="w-full h-48 object-cover product-image">
+                    <div class="absolute bottom-4 left-0 w-full bg-gray-900 bg-opacity-50 text-white text-center py-2 product-name-overlay">
+                        <h3 class="font-semibold">EDIÇÃO DE DOCUMENTOS</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Show More and Checkout Buttons -->
+            <div class="text-center mt-8 flex flex-col sm:flex-row justify-center gap-4">
+                <button onclick="toggleProducts()"
+                        class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-md transition-colors text-sm md:text-base">
+                    MOSTRAR TUDO
+                </button>
+
+                <button
+                    class="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-md transition-colors flex items-center justify-center gap-2 text-sm md:text-base">
+                    <i class="fas fa-shopping-cart"></i>
+                    FAZER ORDEM / CHECKOUT
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4 mt-12">
+            <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-8 max-w-3xl mx-auto shadow-md">
+                <div class="text-center">
+                    <p class="mb-4 text-gray-700 dark:text-gray-200">
+                        Somos uma empresa jovem e dinâmica, impulsionada pela energia e criatividade da nova geração. Com
+                        uma equipe cheia de entusiasmo e eficiência, transformamos ideias em soluções inovadoras, sempre
+                        com um toque de modernidade e agilidade.
+                    </p>
+                    <p class="text-gray-700 dark:text-gray-200">
+                        Na <span class="font-bold text-gray-900 dark:text-white">Tri-Color Design</span> a juventude é
+                        nossa força, e a inovação, nosso compromisso!
+                    </p>
+
+                    <!-- WhatsApp Button -->
+                    <a href="#"
+                       class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-md transition-colors mt-6 text-sm md:text-base">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                        LAYOUT DESIGN - WHATSAPP
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 dark:bg-gray-800 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Logo Column -->
+                <div>
+                    <img
+                        src="images/logo_black.png"
+                        alt="Tri Color Design"
+                        class="w-48 mb-4 dark:hidden"
+                    >
+                    <img
+                        src="images/logo_white_footer.png"
+                        alt="Tri Color Design"
+                        class="w-48 mb-4 hidden dark:block"
+                    >
+                </div>
+
+                <!-- About Column -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">Sobre a Tri Color</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Termos
+                                e Condições</a></li>
+                        <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Subscreva
+                                ao nosso canal do whatsapp</a></li>
+                        <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Condições
+                                de entrega</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources Column -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">Recursos</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Serviços
+                                de Design</a></li>
+                        <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Regras
+                                de Submissão de Design</a></li>
+                        <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Templates</a></li>
+                    </ul>
+                </div>
+
+                <!-- Products Column -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">Produtos da Tri Color</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Produtos
+                                da Tri Color</a></li>
+                        <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Mais
+                                solicitados</a></li>
+                        <li><a href="#" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100">Banners
+                                e Roll ups</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</div> <!-- End main-content -->
+
+<script src="main.js"></script>
+</body>
+</html>
